@@ -1,13 +1,17 @@
-<div>
-    <img src="" alt="">
-    <h3>Luciano hostin</h3>
+<div class="card">
+    <img src="/assets/imagens/bochi the rock.jpg" alt="">
+    <h3>{{aluno.nome}}</h3>
     <p>
-        <strong>Curso:</strong> Angular
+        <strong>Curso:</strong> {{aluno.curso}}
     </p>
     <p>
-        <strong>Matricula:</strong> 7799
+        <strong>Matricula:</strong> {{aluno.matricula}}
     </p>
     <p>
-        <strong>E-mail:</strong> luciano.com.br
+        <strong>E-mail:</strong> {{aluno.email}}
     </p>
+    <p>
+        <strong>Status cadastro:</strong> {{aluno.status ? 'Ativo' : 'Inativo'}}
+    </p>
+    <p class="PP">ProWay</p>
 </div>
