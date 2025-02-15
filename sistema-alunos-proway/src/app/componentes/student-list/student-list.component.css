@@ -1,0 +1,30 @@
+div {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 800px;
+}
+
+thead tr{
+  background-color: orange;
+  color: white;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: silver;
+}
+
+tbody tr:hover{
+  background-color: rgb(27, 27, 96);
+  color: #fff;
+}

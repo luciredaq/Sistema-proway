@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Aluno } from './interfaces/Aluno';
 
 @Component({
   selector: 'app-root',
@@ -7,37 +8,45 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Sistema Aluno ProWay';
 
-  listAluno = [
+  title = 'Sistema Aluno ProWay';
+  exibicao: string = 'cards';
+
+  listAluno: Aluno [] = [
     {
-      img: 'assets/bochi the rock.jpg',
-      nome: 'luciano',
+      nome: 'Luciano',
       curso: 'Angular',
       matricula: 4311,
       email: 'luciano@gmail.com',
-      status: true
+      status: true,
+      imagem: '/assets/imagens/bochi the rock.jpg'
 
     },
     {
-      img: 'assets/bochi1.png',
-      nome: 'alex',
+      nome: 'Alex',
       curso: 'Typescript',
       matricula: 222,
       email: 'alex@gmail.com',
-      status: true
-
+      status: true,
+      imagem: '/assets/imagens/bochi1.png'
     },
     {
-      img: 'assets/bochi2.png',
-      nome: 'renan',
+      nome: 'Renan',
       curso: 'C++',
       matricula: 777,
       email: 'renan@gmail.com',
-      status: false
-
+      status: false,
+      imagem: '/assets/imagens/bochi2.png'
     },
 
   ];
+
+  alterarExibicaoCards(): void {
+    if(this.exibicao === 'cards'){
+      this.exibicao = 'lista';
+    }else {
+      this.exibicao = 'cards';
+    }
+  }
 
 }

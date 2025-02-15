@@ -1,5 +1,5 @@
 <div class="card">
-    <img src="/assets/imagens/bochi the rock.jpg" alt="">
+    <img src="{{ aluno.imagem }}" alt="">
     <h3>{{aluno.nome}}</h3>
     <p>
         <strong>Curso:</strong> {{aluno.curso}}
@@ -10,8 +10,10 @@
     <p>
         <strong>E-mail:</strong> {{aluno.email}}
     </p>
-    <p>
-        <strong>Status cadastro:</strong> {{aluno.status ? 'Ativo' : 'Inativo'}}
-    </p>
-    <p class="PP">ProWay</p>
+    <div class="aprovacao" [ngClass]="aluno.status ? 'aprovado' : 'reprovado'">
+        <p>
+            Aluno {{ aluno.status ? 'aprovado' : 'reprovado'}}
+        </p>
+    </div>
+    <p class="PP" [ngStyle]="{'font-size': textoMedio}">ProWay</p>
 </div>
