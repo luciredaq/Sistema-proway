@@ -23,15 +23,35 @@ footer {
     padding: 16px;
 }
 
-div .botao{
+.button {
     display: flex;
     justify-content: center;
-    padding: 20px;
-    margin: 20px;
 }
 
-button {
-    text-decoration: none;
-    
+button {  
+    border: none;
+    padding: 8px;
+    margin: 4px;
+    background-color:  rgb(27, 27, 96);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+button:hover{
+    background-color: #f28500;
+}
+
+.mensagem {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mensagem p{
+    border: solid 1px silver;
+    padding: 20px;
+    border-radius: 8px;
 }
 

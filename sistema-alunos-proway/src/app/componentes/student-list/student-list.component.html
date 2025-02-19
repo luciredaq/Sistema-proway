@@ -7,32 +7,27 @@
                 <th>E-mail</th>
                 <th>Curso</th>
                 <th>Status</th>
+                <th>Ações</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr>
-                <td>{{ lista[0].matricula }}</td>
-                <td>{{ lista[0].nome }}</td>
-                <td>{{ lista[0].email }}</td>
-                <td>{{ lista[0].curso }}</td>
-                <td>{{ lista[0].status }}</td>
-            </tr>
-            <tr>
-                <td>222</td>
-                <td>bob.com.br</td>
-                <td>bob.com.br</td>
-                <td>bob.com.br</td>
-                <td>bob.com.br</td>
-            </tr>
-            <tr>
-                <td>333</td>
-                <td>bob.com.br</td>
-                <td>bob.com.br</td>
-                <td>bob.com.br</td>
-                <td>bob.com.br</td>
+            <tr *ngFor="let aluno of alunos">
+                <td>{{ aluno.matricula }}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.email }}</td>
+                <td>{{ aluno.curso }}</td>
+                <td>{{ aluno.status === true ? 'Aprovado' : 'Reprovado'}}</td>
+                <td class="botoes">
+                    <button class="btn-green" (click)="editarAluno(aluno)">Editar</button>
+                    <button (click)="excluirAluno(aluno.matricula)" class="btn-vermelho">Excluir</button>
+                </td>
             </tr>
         </tbody>
 
     </table>
+</div>
+
+<div>
+    <app-student-form [aluno]="alunoEdicao" (adicionar)="onAdicionar($event)"></app-student-form>
 </div>

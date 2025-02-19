@@ -4,17 +4,22 @@
   </header>
   <main>
 
-    <div class="botao">
-      <button (click)="alterarExibicaoCards()">{{exibicao === 'cards' ? 'Lista' : 'Carts'}}</button>
+    <div class="button">
+      <button (click)="alterarExibicaoCards()">Mostrar {{exibicao === 'cards' ? 'Lista' : 'Carts'}}</button>
+      <button (click)="filtrarAlunos('APROVADO')">Alunos Aprovados</button>
+      <button (click)="filtrarAlunos('REPROVADO')">Exibir Reprovados</button>
+      <button (click)="filtrarAlunos('TODOS')">Exibir Todos</button>
     </div>
 
-    <div class="cards" *ngIf="exibicao === 'cards'">
-      <app-studant [aluno]="listAluno[0]"></app-studant>
-      <app-studant [aluno]="listAluno[1]"></app-studant>
-      <app-studant [aluno]="listAluno[2]"></app-studant>
+    <div class="cards" *ngIf="exibicao === 'cards' && listAluno.length !== 0">
+      <app-studant *ngFor="let item of listAluno" [aluno]="item"></app-studant>
     </div>
-    <div class="lista" *ngIf="exibicao === 'lista'">
-      <app-student-list [lista]="listAluno"></app-student-list>
+    <div class="lista" *ngIf="exibicao === 'lista' && listAluno.length !== 0">
+      <app-student-list [alunos]="listAluno" (excluir)="onExcluir($event)"></app-student-list>
+    </div>
+
+    <div class="mensagem" *ngIf="listAluno.length === 0">
+        <p>Nao foi possivel encontrar esses dados na lista</p>
     </div>
   </main>
   
@@ -22,3 +27,4 @@
     <p>- &copy;Desenvolvido por Luciano -</p>
   </footer>
 </div>
+
